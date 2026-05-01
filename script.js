@@ -5,7 +5,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const mlSub1 = urlParams.get('ml_sub1');
 
 // MASUKKAN LINK LOCKER MYLEAD MONOPOLY GO ANDA DI SINI
-let myLeadLink = "https://bestlocker.eu/iframe/MASUKKAN_KODE_LOCKER_ANDA";
+let myLeadLink = "https://bestlocker.eu/iframe/cdcc3fb2-2137-11f1-a5cd-4e5c1971bddc";
 
 if (mlSub1) {
     if (myLeadLink.includes("?")) {
