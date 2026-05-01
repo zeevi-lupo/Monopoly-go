@@ -1,0 +1,221 @@
+:root {
+    --bg-blue: #cde6f5; 
+    --monopoly-red: #E3000F;
+    --gold: #FFD700;
+    --dark-text: #1a1a1a;
+    --white: #ffffff;
+    --btn-green: #32CD32;
+    --border-radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-blue);
+    background-image: radial-gradient(circle, #e6f2f9 0%, #a6d0eb 100%);
+    color: var(--dark-text);
+    min-height: 100vh;
+    overflow-x: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+/* TOP BAR */
+.top-bar {
+    position: fixed; 
+    top: 0; left: 0; width: 100%;
+    padding: 10px 15px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--monopoly-red);
+    box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+    z-index: 100;
+}
+.server-status { font-size: 0.8rem; line-height: 1.2; color: #fff; font-weight: 800;}
+.status-dot {
+    height: 10px; width: 10px; background-color: var(--btn-green);
+    border-radius: 50%; display: inline-block; margin-right: 5px;
+    box-shadow: 0 0 5px var(--btn-green);
+}
+.online-text { color: var(--btn-green); font-weight: 900; }
+.user-count { color: #f0f0f0; font-size: 0.75rem; }
+
+/* CONTAINER PRESISI */
+.container {
+    width: 100%; max-width: 420px;
+    padding: 80px 15px 30px 15px; 
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.step-content {
+    background: var(--white);
+    border: 4px solid var(--dark-text);
+    border-radius: var(--border-radius); 
+    padding: 25px 20px;
+    width: 100%; 
+    max-width: 380px; 
+    text-align: center; 
+    box-shadow: 0 8px 0 rgba(0,0,0,0.1), inset 0 0 0 4px #e0e0e0;
+}
+
+.popup-style {
+    margin: 0 auto;
+}
+
+.logo-container { 
+    margin-bottom: 20px; 
+}
+.main-logo { 
+    width: 110px; /* Mengecilkan ukuran agar pas seperti icon aplikasi */
+    height: 110px; /* Membuat ukurannya presisi persegi */
+    object-fit: cover; /* Mencegah gambar menjadi gepeng */
+    border-radius: 24px; /* Sihir untuk membuat sudutnya melengkung mulus ala Play Store */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* Memberikan efek bayangan agar logo seakan melayang */
+}
+
+.title-text { 
+    font-family: 'Lilita One', cursive; 
+    font-size: 2rem; color: var(--dark-text); 
+    letter-spacing: 1px; margin-bottom: 5px; text-transform: uppercase;
+}
+.subtitle { font-size: 0.9rem; color: #555; margin-bottom: 20px; font-weight: 700; }
+
+/* INPUTS & BUTTONS */
+.input-group {
+    display: flex; align-items: center;
+    background: #f0f0f0; border: 3px solid #ccc;
+    border-radius: 12px; padding: 10px 15px; margin-bottom: 15px;
+}
+.input-icon { color: #888; font-size: 1.2rem; margin-right: 10px; }
+.input-group input {
+    border: none; background: transparent; width: 100%;
+    font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.1rem;
+    outline: none; color: var(--dark-text);
+}
+
+.device-selector { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px; }
+.device-btn {
+    flex: 1; background: #e0e0e0; border: 3px solid #ccc;
+    border-radius: 12px; padding: 12px 0; cursor: pointer; 
+    font-weight: 900; color: #555; transition: 0.2s;
+}
+.device-btn.selected { 
+    background: #d4edda; border-color: var(--btn-green); color: #155724; 
+}
+
+.cta-btn {
+    background: var(--monopoly-red); color: var(--white);
+    font-family: 'Lilita One', cursive; font-size: 1.5rem; letter-spacing: 1px;
+    border: none; padding: 15px 0; width: 100%; border-radius: 12px;
+    cursor: pointer; box-shadow: 0 6px 0 #9e000a;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.3); display: block; text-align: center; text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+.cta-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #9e000a; }
+
+.pulse-anim { animation: pulseButton 1.5s infinite; }
+@keyframes pulseButton {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* PROGRESS BAR */
+.progress-bar-bg {
+    background: #e0e0e0; height: 15px; border-radius: 10px;
+    overflow: hidden; border: 2px solid #ccc; margin-top: 10px;
+}
+.progress-bar-fill { height: 100%; background: var(--btn-green); width: 0%; transition: width 0.3s; }
+.loading-text { font-weight: 900; color: #555; margin-bottom: 5px; font-size: 0.9rem; }
+
+/* REWARDS GRID (KARTU PASIF, TOMBOL AKTIF) */
+.user-badge {
+    background: var(--dark-text); color: white; display: inline-block;
+    padding: 5px 15px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;
+    margin-bottom: 15px; border: 2px solid var(--gold);
+}
+
+.reward-tabs { display: flex; gap: 10px; margin-bottom: 15px; }
+.tab {
+    flex: 1; padding: 10px; font-family: 'Lilita One', cursive; font-size: 1.1rem;
+    background: #e0e0e0; color: #888; border-radius: 10px; cursor: pointer;
+    border: 3px solid #ccc; border-bottom: 5px solid #bbb;
+}
+.tab.active { background: #007bff; color: white; border-color: #0056b3; border-bottom: 5px solid #004085; }
+
+.reward-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.reward-card {
+    background: #f8f9fa; border: 3px solid #ccc; border-radius: 15px;
+    padding: 15px 10px; text-align: center; position: relative;
+    box-shadow: 0 6px 0 #d3d3d3;
+}
+.reward-card.popular { border-color: var(--gold); background: #fffbe6; box-shadow: 0 6px 0 #d4b200; }
+
+.badge-best {
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    background: var(--monopoly-red); color: white; font-family: 'Lilita One', cursive;
+    font-size: 0.7rem; padding: 3px 10px; border-radius: 10px; border: 2px solid var(--dark-text);
+    white-space: nowrap; z-index: 10;
+}
+.reward-amount { font-family: 'Lilita One', cursive; font-size: 1.8rem; color: var(--dark-text); line-height: 1; }
+.reward-name { font-weight: 900; font-size: 0.8rem; color: #666; margin-bottom: 5px; }
+.reward-icon { font-size: 2.5rem; color: #aaa; margin-bottom: 10px; display: block; filter: drop-shadow(0 2px 1px rgba(0,0,0,0.2)); }
+
+.claim-btn {
+    background: var(--btn-green); color: white; font-family: 'Lilita One', cursive;
+    border: 2px solid #1e7e34; border-radius: 8px; padding: 8px 5px; width: 100%;
+    font-size: 1.1rem; box-shadow: 0 4px 0 #1e7e34; cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+.claim-btn:active { 
+    transform: translateY(4px); box-shadow: 0 0 0 #1e7e34; 
+}
+
+/* COMMENTS */
+.comments-section {
+    margin-top: 25px; background: #f8f9fa; border-radius: 12px;
+    padding: 15px; border: 3px solid #e0e0e0; text-align: left;
+}
+.comments-header {
+    font-family: 'Lilita One', cursive; color: var(--monopoly-red);
+    font-size: 1rem; margin-bottom: 10px; border-bottom: 2px solid #e0e0e0; padding-bottom: 5px;
+}
+.comment-item { display: flex; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #ccc; }
+.comment-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.comment-avatar { width: 35px; height: 35px; border-radius: 50%; border: 2px solid var(--gold); }
+.comment-name { font-weight: 900; color: #333; font-size: 0.85rem; }
+.comment-time { font-weight: 700; color: #999; font-size: 0.65rem; margin-left: 5px; }
+.comment-text { color: #555; font-size: 0.8rem; font-weight: 700; line-height: 1.3; }
+
+/* NOTIFICATION */
+.live-noti-container {
+    position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%);
+    background: var(--dark-text); border: 2px solid var(--gold); border-radius: 30px;
+    padding: 8px 15px 8px 8px; display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; transition: bottom 0.5s; width: 90%; max-width: 350px;
+}
+.live-noti-container.show { bottom: 20px; }
+.noti-img {
+    width: 35px; height: 35px; background: var(--monopoly-red); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;
+}
+.noti-text { color: #fff; font-size: 0.8rem; font-weight: 700; }
+.noti-name { color: var(--gold); font-weight: 900; }
+.noti-item { color: var(--btn-green); font-weight: 900; }
+.noti-time { color: #aaa; font-size: 0.65rem; }
+
+/* MISC */
+.alert-icon { font-size: 4rem; color: var(--monopoly-red); margin-bottom: 10px; }
+.console-text { font-family: monospace; font-size: 0.9rem; font-weight: bold; color: #555; margin: 10px 0; }
+.fa-spin { animation: fa-spin 2s infinite linear; }
