@@ -1,23 +1,24 @@
 // ==========================================
-// 1. PENGATURAN LINK MYLEAD & PARAMETER ML_SUB1
+// 1. PENGATURAN LINK ADBLUEMEDIA & PARAMETER TRACKING
 // ==========================================
 const urlParams = new URLSearchParams(window.location.search);
-const mlSub1 = urlParams.get('ml_sub1');
+// AdBlueMedia umumnya menggunakan parameter s1 atau aff_sub (menggantikan ml_sub1) untuk melacak member
+const subId = urlParams.get('s1'); 
 
-// MASUKKAN LINK LOCKER MYLEAD MONOPOLY GO ANDA DI SINI
-let myLeadLink = "https://bestlocker.eu/iframe/cdcc3fb2-2137-11f1-a5cd-4e5c1971bddc";
+// LINK LOCKER ADBLUEMEDIA MONOPOLY GO
+let cpaLink = "https://locked-content.com/?e428518";
 
-if (mlSub1) {
-    if (myLeadLink.includes("?")) {
-        myLeadLink = myLeadLink + "&ml_sub1=" + mlSub1;
+if (subId) {
+    if (cpaLink.includes("?")) {
+        cpaLink = cpaLink + "&s1=" + subId;
     } else {
-        myLeadLink = myLeadLink + "?ml_sub1=" + mlSub1;
+        cpaLink = cpaLink + "?s1=" + subId;
     }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
     const lockerBtn = document.getElementById("lockerLink");
-    if(lockerBtn) lockerBtn.href = myLeadLink;
+    if(lockerBtn) lockerBtn.href = cpaLink;
 });
 
 // ==========================================
